@@ -1,7 +1,7 @@
 {
   "name": "ember-frost-text",
-  "version": "1.2.1",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "Simple Frost text input",
   "main": "index.js",
   "directories": {
     "doc": "doc",
@@ -10,14 +10,20 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "lint": "eslint .",
+    "lint": "eslint *.js addon app config tests",
     "test": "npm run lint && ember test"
   },
   "repository": "git@github.com:ciena-frost/ember-frost-text.git",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 5.0.0"
   },
-  "author": "",
+  "author": "Steven Glanzer (https://github.com/sglanzer)",
+  "contributors": [
+    "Roxanne Panthaky (https://github.com/rox163)",
+    "Gosia Hyndman (https://github.com/vesper2000)",
+    "Adam Meadows (https://github.com/job13er)",
+    "Matt Dahl (https://github.com/sandersky)"
+  ],
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "2.4.2",
@@ -41,25 +47,22 @@
     "ember-lodash": "0.0.6",
     "ember-truth-helpers": "1.2.0",
     "ember-try": "0.1.2",
-    "eslint": "1.10.3",
-    "eslint-config-frost-standard": "0.2.5",
-    "frost-button": "1.1.6",
-    "frost-docs": "1.1.2",
-    "frost-tabs": "2.1.1"
+    "eslint": "^1.10.3",
+    "eslint-config-frost-standard": "^0.2.5",
+    "ember-frost-button": "^0.3.0"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "frost"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.5",
     "ember-cli-htmlbars": "^1.0.1",
     "ember-cli-sass": "^5.1.0",
-    "frost-css": "^1.1.0"
+    "ember-frost-css-core": "^0.3.0",
+    "ember-frost-theme": "^0.3.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  },
-  "publishConfig": {
-    "registry": "https://artifactory.ciena.com/api/npm/icebreaker-npm"
   }
 }
