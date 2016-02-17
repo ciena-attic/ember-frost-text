@@ -3,7 +3,7 @@
 'use strict'
 
 module.exports = {
-  name: 'frost-text',
+  name: 'ember-frost-text',
 
   included: function (app) {
     this._super.included(app)

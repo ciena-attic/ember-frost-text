@@ -1,8 +1,6 @@
 import Ember from 'ember'
 
 export default Ember.Controller.extend({
-  queryParams: ['iframe', 'selectedTab'],
-  selectedTab: 'readme',
   error: true,
 
   actions: {
@@ -37,10 +35,6 @@ export default Ember.Controller.extend({
 
     toggleError () {
       this.toggleProperty('error')
-    },
-
-    tabSelected (tab) {
-      this.set('selectedTab', tab)
     }
   },
 
