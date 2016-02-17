@@ -41,7 +41,7 @@
     "ember-data": "^2.3.3",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.5",
-    "ember-frost-button": "^0.3.11",
+    "ember-frost-button": "^0.3.12",
     "ember-load-initializers": "^0.5.1",
     "ember-lodash": "^0.0.6",
     "ember-resolver": "^2.0.3",
@@ -60,7 +60,7 @@
     "ember-cli-htmlbars": "^1.0.1",
     "ember-cli-sass": "^5.1.0",
     "ember-frost-css-core": "^0.3.0",
-    "ember-frost-theme": "^0.3.0"
+    "ember-frost-theme": "^0.4.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
