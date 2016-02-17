@@ -9,10 +9,10 @@
 
 # ember-frost-text <br /> [![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
 
-* [Installation](#Installation)
-* [API](#API)
-* [Examples](#Examples)
-* [Development](#Development)
+* [Installation](#installation)
+* [API](#api)
+* [Examples](#examples)
+* [Development](#development)
 
 ## Installation
 ```
@@ -26,7 +26,7 @@ ember install ember-frost-text
 | `autofocus` |`boolean` | `false` | **default**: Nothing to see here, just your average text input |
 | | | `true` | Look at me! |
 | `disabled` | `boolean` | `false` | **default**: Type to your heart's content |
-| | | `true` | :no_entry_sign: Can't click this! :notes: |
+| | | `true` | :no_entry_sign: Can't update this! :notes: |
 | `on-input` | `string` | `<action-name>` | triggers associated action when the input value is changed |
 | `value` | `string` | `<value-text>` | what text to put in input |
 
