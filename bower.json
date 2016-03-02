@@ -12,6 +12,6 @@
     "pretender": "^0.10.1"
   },
   "resolutions": {
-    "ember": "2.3.1"
+    "ember": "^2.3.1"
   }
 }
