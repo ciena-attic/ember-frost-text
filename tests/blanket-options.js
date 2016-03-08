@@ -10,7 +10,10 @@ var options = {
     reporters: ['lcov'],
     autostart: true,
     lcovOptions: {
-      outputFile: 'coverage/lcov.info'
+      outputFile: 'coverage/lcov.info',
+      renamer: function (fileName) {
+        return fileName.replace('ember-frost-text', 'ember-frost-text/addons')
+      }
     }
   }
 }
