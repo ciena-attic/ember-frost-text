@@ -7,8 +7,11 @@ var options = {
   loaderExclusions: [],
   enableCoverage: true,
   cliOptions: {
-    reporters: ['json'],
-    autostart: true
+    reporters: ['lcov'],
+    autostart: true,
+    lcovOptions: {
+      outputFile: 'coverage/lcov.info'
+    }
   }
 }
 
