@@ -1,20 +1,15 @@
 language: node_js
-sudo: false
 node_js:
-- '5.3'
+- '5.0'
+- 'stable'
+sudo: false
 branches:
   except:
-  - /^v[0-9\.]+/
-before_install:
-- npm install -g coveralls pr-bumper
-- pr-bumper check
-install:
-- npm install
-- bower install
-after_success:
-- sed -i -- 's/SF:ember-frost-text\/\(.*\)/SF:addon\/\1.js/' coverage/lcov.info &&
-  rm -f coverage/lcov.info--
-- cat coverage/lcov.info | coveralls
+  - "/^v[0-9\\.]+/"
+cache:
+  directories:
+  - bower_components
+  - node_modules
 addons:
   apt:
     sources:
@@ -23,9 +18,31 @@ addons:
     - g++-4.8
 env:
   matrix:
-  - CXX=g++-4.8
+  - EMBER_TRY_SCENARIO=default
+  - EMBER_TRY_SCENARIO=ember-release
+  - EMBER_TRY_SCENARIO=ember-beta
+  - EMBER_TRY_SCENARIO=ember-canary
   global:
-    secure: CDrHONOO+GzowHZ1yZHC9qLqe8yDZSQWP9w07Qw9Fr89Ym7U1mY8GjwsOzur1aM6Dg+29I3JFIfRmiRQD1sd7mdZzmftqP+MaUMMw8pQMMuJ7MWA0Qhm09tjQaByRk6vbYbLGrzSo2Exo6Mfy6tXJ+VOqcEKWqx8JyyVVs3dWz3Ij6AvXtDmgJ/8gGO/NCngFSGbIPQw5eesouLucWnnOg+PXjYt/xkRyEHV9BKbMK5D8+9A3QWDkGvgWRO/NO7d0RT2H1ngVPY0PP8rE4JVRyv69T5RYbTgoj3v5DFZMSRlHgVF/xymtduqQ4aAEHtKPEyUKTs/084LKUtHZVvXD38/5v8atYS2WfGP5AF0Hq0k5B3sCPpA6QGQNLwevicxgkDoP3zWYtmL01zXbns981adJpPFTiirzYp63n274QImOTg6CZzUCdi6IBR3OHXL7Uuk311Jk/ulcpblfmVEukxi1MRgmj3U5tRDxuuIEsmKLb+jlhR5VyfZzdsagNdMkx++6+KiHzdKjLd4Ed6FjEkRxjWn9fdWmmMpvEAIz0/kwYzUDXFF5svUWK8U4douujoU5gclCOHHwtEoemsQupaiIM5edrBjUkTQWOZpZl+CJ91uFdb8nmf5PDFBFyE0pTOYqToa5kpMuFPZFGBqnFn1WYEOGF11ZtEy1cu48Cc=
+    - CXX=g++-4.8
+    - secure: CDrHONOO+GzowHZ1yZHC9qLqe8yDZSQWP9w07Qw9Fr89Ym7U1mY8GjwsOzur1aM6Dg+29I3JFIfRmiRQD1sd7mdZzmftqP+MaUMMw8pQMMuJ7MWA0Qhm09tjQaByRk6vbYbLGrzSo2Exo6Mfy6tXJ+VOqcEKWqx8JyyVVs3dWz3Ij6AvXtDmgJ/8gGO/NCngFSGbIPQw5eesouLucWnnOg+PXjYt/xkRyEHV9BKbMK5D8+9A3QWDkGvgWRO/NO7d0RT2H1ngVPY0PP8rE4JVRyv69T5RYbTgoj3v5DFZMSRlHgVF/xymtduqQ4aAEHtKPEyUKTs/084LKUtHZVvXD38/5v8atYS2WfGP5AF0Hq0k5B3sCPpA6QGQNLwevicxgkDoP3zWYtmL01zXbns981adJpPFTiirzYp63n274QImOTg6CZzUCdi6IBR3OHXL7Uuk311Jk/ulcpblfmVEukxi1MRgmj3U5tRDxuuIEsmKLb+jlhR5VyfZzdsagNdMkx++6+KiHzdKjLd4Ed6FjEkRxjWn9fdWmmMpvEAIz0/kwYzUDXFF5svUWK8U4douujoU5gclCOHHwtEoemsQupaiIM5edrBjUkTQWOZpZl+CJ91uFdb8nmf5PDFBFyE0pTOYqToa5kpMuFPZFGBqnFn1WYEOGF11ZtEy1cu48Cc=
+matrix:
+  fast_finish: true
+  allow_failures:
+  - env: EMBER_TRY_SCENARIO=ember-canary
+before_install:
+- npm config set spin false
+- npm install -g coveralls pr-bumper
+- pr-bumper check
+install:
+- npm install
+- bower install
+script:
+- npm run lint
+- ember try:one $EMBER_TRY_SCENARIO --- ember test
+after_success:
+- sed -i -- 's/SF:ember-frost-text\/\(.*\)/SF:addon\/\1.js/' coverage/lcov.info &&
+  rm -f coverage/lcov.info--
+- cat coverage/lcov.info | coveralls
 before_deploy:
 - pr-bumper bump
 deploy:
@@ -36,6 +53,8 @@ deploy:
     secure: MVVwmunBMe/Wqp9SfgHWvlG1zkkVcJR+a2zzIjCo+NeAX9F62LZzxaftcSU2TmT/8ylxozABI+L17qj5jsIGwq1Mz3FZ0MYNuluae9QIjL2nyJyACTf9hlciCAlrTfxSOpbBBBPyQ74eJJZaJpgcLCax6tBW0y/ZB5JOCYBQx7pBtUMCEU1V9n8J98o63mO+21nSl0AWj5hN/e+qnyr8hcwwl3Ji3nwIvJLAgPF2BwAlvjDpmttrQsWRIoJQtc4xtFS1M+gqGO11xL2cSdqNc15j01kUFo2bN4pA3vLVQ9uzmLt0nSCYjzlVBYUh5pHzQKodr3GsRB/cZxvQqAGGIwA/lbwnwa9Z+bcYWS37SCitBSRFVPqOYDbfJAc+iaa8yp7Rhx/fby7jcu23Gai6EmsFJei7UQrcwbjYcwN0o3lBehzk+wWV9zdmBMiuIBESNKXyCEG5gOCoKm7f7tnKA0StRjKOdzPr6iWH58NzsYAL7v59NyT6qFatBT9Ca949Vk7vRoo85v6fbZgALD0MENrezia2H99XSdYCbTiVdD5Xx3voHP07yAhJvZx9h5SvWWKn311L4RjblERu8KnCi05JkJ4XgfDw4IWEXRBxYKXZOJw1MgjY0KSUJP3s9PCoP5/Z7OoIMZLAZb2KaHSnR/1wPXSMZy8sXDy3T60etiI=
   on:
     branch: master
+    condition: "$EMBER_TRY_SCENARIO = 'default'"
+    node: 'stable'
     tags: false
 after_deploy:
 - .travis/publish-gh-pages.sh
