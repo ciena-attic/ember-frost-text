@@ -9,11 +9,6 @@
 
 # ember-frost-text <br /> [![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
 
-* [Installation](#installation)
-* [API](#api)
-* [Examples](#examples)
-* [Development](#development)
-
 ## Installation
 ```
 ember install ember-frost-text
