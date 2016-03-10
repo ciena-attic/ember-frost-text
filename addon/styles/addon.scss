@@ -8,6 +8,7 @@ $error-margin: 1px; // Note: margin + border width equals border width of focus 
 $focus-border: 2px solid $frost-color-blue-1;
 $focus-margin: 0;
 $disabled-border: 1px solid $frost-color-lgrey-1;
+$disabled-bg: $frost-color-lgrey-3;
 $font-size: $frost-font-s;
 $height: 35px;
 $margin: 1px; // Note: margin + border width equals border width of focus state
@@ -42,7 +43,7 @@ $padding: 0 6px;
 
     &:disabled {
       border: $disabled-border;
-      background-color: $frost-color-lgrey-3;
+      background-color: $disabled-bg;
     }
 
     &:hover:enabled:read-write{
