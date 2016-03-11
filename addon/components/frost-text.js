@@ -3,7 +3,7 @@ import Ember from 'ember'
 import layout from '../templates/components/frost-text'
 
 export default Ember.Component.extend({
-  attributeBindings: ['autofocus', 'placeholder', 'disabled', 'readonly', 'value'],
+  attributeBindings: ['autofocus', 'placeholder', 'disabled', 'readonly', 'value', 'type'],
   classNames: ['frost-text'],
   layout: layout,
 
