@@ -1,8 +1,13 @@
 import _ from 'lodash'
 import Ember from 'ember'
+import layout from '../templates/components/frost-text'
 
-export default Ember.TextField.extend({
+export default Ember.Component.extend({
+  attributeBindings: ['autofocus', 'placeholder', 'disabled', 'readonly', 'value'],
   classNames: ['frost-text'],
+  layout: layout,
+
+  showClear: false,
 
   onChange: Ember.on('input', function (e) {
     const id = this.get('id')
@@ -12,5 +17,20 @@ export default Ember.TextField.extend({
     if (_.isFunction(onInput)) {
       onInput({id, value})
     }
-  })
+    if (e.target.value.length > 0) {
+      this.set('showClear', true)
+    }
+  }),
+
+  onFocus: Ember.on('focusIn', function (e) {
+    e.target.select()
+  }),
+
+  actions: {
+    clear: function () {
+      this.set('value', '')
+      this.$('input').focus()
+      this.set('showClear', false)
+    }
+  }
 })
