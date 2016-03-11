@@ -17,7 +17,9 @@ export default Ember.Component.extend({
     if (_.isFunction(onInput)) {
       onInput({id, value})
     }
-    this.set('showClear', true)
+    if (e.target.value.length > 0) {
+      this.set('showClear', true)
+    }
   }),
 
   onFocus: Ember.on('focusIn', function (e) {
