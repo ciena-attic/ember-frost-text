@@ -10,6 +10,7 @@ export default Ember.Component.extend({
   showClear: false,
 
   onChange: Ember.on('input', function (e) {
+    debugger
     const id = this.get('id')
     const value = e.target.value
     const onInput = this.get('on-input')
@@ -30,7 +31,9 @@ export default Ember.Component.extend({
     clear: function () {
       this.set('value', '')
       this.$('input').focus()
+      this.$('input').val('')
       this.set('showClear', false)
+      this.$('input').trigger('input')
     }
   }
 })
