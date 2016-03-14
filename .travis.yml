@@ -6,9 +6,6 @@ sudo: false
 branches:
   except:
   - "/^v[0-9\\.]+/"
-cache:
-  directories:
-  - node_modules
 addons:
   apt:
     sources:
@@ -35,6 +32,10 @@ before_install:
 install:
 - npm install
 - bower install
+before_script:
+- "export DISPLAY=:99.0"
+- "sh -e /etc/init.d/xvfb start"
+- sleep 3 # give xvfb some time to start
 script:
 - npm run lint
 - ember try:one $EMBER_TRY_SCENARIO --- ember test
