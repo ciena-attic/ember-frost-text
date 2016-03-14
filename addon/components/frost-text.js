@@ -10,7 +10,6 @@ export default Ember.Component.extend({
   showClear: false,
 
   onChange: Ember.on('input', function (e) {
-    debugger
     const id = this.get('id')
     const value = e.target.value
     const onInput = this.get('on-input')
