@@ -30,7 +30,9 @@ export default Ember.Component.extend({
     clear: function () {
       this.set('value', '')
       this.$('input').focus()
+      this.$('input').val('')
       this.set('showClear', false)
+      this.$('input').trigger('input')
     }
   }
 })
