@@ -1,4 +1,3 @@
-@import 'node_modules/ember-frost-css-core/scss/frost-core';
 @import 'node_modules/ember-frost-theme/scss/frost-theme';
 
 $border: 1px solid $frost-color-input-border;
@@ -15,6 +14,8 @@ $margin: 1px; // Note: margin + border width equals border width of focus state
 $padding: 0 19px 0 6px;
 
 .frost-text {
+  display: flex;
+  align-items: center;
   &.error {
     > input {
       border: $error-border;
@@ -49,7 +50,6 @@ $padding: 0 19px 0 6px;
       border: $focus-border;
       margin: $margin;
     }
-
   }
 
   .clear {
@@ -58,6 +58,8 @@ $padding: 0 19px 0 6px;
     margin-right: 8px;
     height: 15px;
     width: 15px;
+    line-height: 15px;
+    text-align: center;
     color: $frost-color-grey-6;
     cursor: pointer;
   }
