@@ -15,7 +15,6 @@ $margin: 1px; // Note: margin + border width equals border width of focus state
 $padding: 0 19px 0 6px;
 
 .frost-text {
-  margin-right: 10px;
   &.error {
     > input {
       border: $error-border;
@@ -53,18 +52,13 @@ $padding: 0 19px 0 6px;
 
   }
 
-  .close {
+  .clear {
     position: relative;
-    left: -20px;
-    top: 1px;
+    margin-left: -20px;
+    margin-right: 8px;
     height: 15px;
     width: 15px;
     color: $frost-color-grey-6;
     cursor: pointer;
   }
-
-  &.show-clear {
-    margin-right: -2px;
-  }
-
 }
