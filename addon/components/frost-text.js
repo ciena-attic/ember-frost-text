@@ -5,6 +5,7 @@ import layout from '../templates/components/frost-text'
 export default Ember.Component.extend({
   attributeBindings: ['autofocus', 'placeholder', 'disabled', 'readonly', 'value', 'type'],
   classNames: ['frost-text'],
+  classNameBindings: ['show-clear'],
   layout: layout,
 
   showClear: false,
@@ -19,8 +20,10 @@ export default Ember.Component.extend({
     }
     if (e.target.value.length > 0) {
       this.set('showClear', true)
+      this.set('show-clear', true)
     } else {
       this.set('showClear', false)
+      this.set('show-clear', false)
     }
   }),
 
