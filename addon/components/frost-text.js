@@ -19,6 +19,8 @@ export default Ember.Component.extend({
     }
     if (e.target.value.length > 0) {
       this.set('showClear', true)
+    } else {
+      this.set('showClear', false)
     }
   }),
 
