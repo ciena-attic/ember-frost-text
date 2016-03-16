@@ -16,7 +16,6 @@ $padding: 0 19px 0 6px;
 .frost-text {
   display: flex;
   align-items: center;
-  margin-right: 10px;
   &.error {
     > input {
       border: $error-border;
@@ -51,12 +50,11 @@ $padding: 0 19px 0 6px;
       border: $focus-border;
       margin: $margin;
     }
-
   }
 
-  .close {
-    position: relative;
-    left: -20px;
+  .clear {
+    margin-left: -20px;
+    margin-right: 5px;
     height: 15px;
     width: 15px;
     line-height: 15px;
@@ -64,9 +62,4 @@ $padding: 0 19px 0 6px;
     color: $frost-color-grey-6;
     cursor: pointer;
   }
-
-  &.show-clear {
-    margin-right: -2px;
-  }
-
 }
