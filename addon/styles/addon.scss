@@ -1,38 +1,65 @@
-@import 'node_modules/ember-frost-css-core/scss/frost-core';
 @import 'node_modules/ember-frost-theme/scss/frost-theme';
 
-$border: 1px solid $frost-color-lgrey-5;
-$color: $frost-color-grey-2;
-$error-border: 1px solid $frost-color-danger;
+$border: 1px solid $frost-color-input-border;
+$color: $frost-color-input;
+$error-border: 1px solid $frost-color-input-error-border;
 $error-margin: 1px; // Note: margin + border width equals border width of focus state
-$focus-border: 2px solid $frost-color-blue-1;
+$focus-border: 2px solid $frost-color-input-focus-border;
 $focus-margin: 0;
+$disabled-border: 1px solid $frost-color-input-disabled-border;
+$disabled-bg: $frost-color-input-disabled-bg;
 $font-size: $frost-font-s;
-$height: 30px;
+$height: 35px;
 $margin: 1px; // Note: margin + border width equals border width of focus state
-$padding: 0 6px;
+$padding: 0 19px 0 6px;
 
 .frost-text {
-  border: $border;
-  color: $color;
-  font-size: $font-size;
-  height: $height;
-  margin: $margin;
-  outline: none;
-  padding: $padding;
-
-  &:focus {
-    border: $focus-border;
-    margin: $focus-margin;
-  }
-
-  &:read-only {
-    border: none;
-    margin: $focus-margin;
-  }
-
+  display: flex;
+  align-items: center;
   &.error {
-    border: $error-border;
-    margin: $error-margin;
+    > input {
+      border: $error-border;
+      margin: $error-margin;
+    }
+  }
+
+  > input {
+    border: $border;
+    color: $color;
+    font-size: $font-size;
+    height: $height;
+    margin: $margin;
+    outline: none;
+    padding: $padding;
+
+    &:focus {
+      border: $focus-border;
+      margin: $margin;
+    }
+
+    &:read-only {
+      border: none;
+    }
+
+    &:disabled {
+      border: $disabled-border;
+      background-color: $disabled-bg;
+    }
+
+    &:hover:enabled:read-write {
+      border: $focus-border;
+      margin: $margin;
+    }
+  }
+
+  .clear {
+    margin-left: -20px;
+    margin-right: 5px;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    text-align: center;
+    color: $frost-color-grey-6;
+    cursor: pointer;
   }
 }
