@@ -11,10 +11,10 @@
     "lodash": "^3.10.1",
     "pretender": "^0.10.1"
   },
+   "devDependencies": {
+    "blanket": "5e94fc30f2e694bb5c3718ddcbf60d467f4b4d26"
+  },
   "resolutions": {
     "ember": "2.4.2"
-  },
-  "devDependencies": {
-    "blanket": "5e94fc30f2e694bb5c3718ddcbf60d467f4b4d26"
   }
 }
