@@ -30,7 +30,7 @@ describeComponent(
         this.set('input-value', attr.value)
       })
 
-      this.render(hbs`{{frost-text id="action" on-input=(action "test-action")}}`)
+      this.render(hbs`{{frost-text id="action" onInput=(action "test-action")}}`)
       Ember.run(() => $('#action').val('a').trigger('input'))
       Ember.run.next(this, () => {
         expect(this.get('input-value')).to.eql('a')

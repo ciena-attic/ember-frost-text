@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   onChange: Ember.on('input', function (e) {
     const id = this.get('id')
     const value = e.target.value
-    const onInput = this.get('on-input')
+    const onInput = this.get('onInput')
 
     if (_.isFunction(onInput)) {
       onInput({id, value})
