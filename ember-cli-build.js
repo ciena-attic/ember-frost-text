@@ -14,5 +14,7 @@ module.exports = function (defaults) {
     }
   })
 
+  app.import('bower_components/highlightjs/styles/github.css')
+
   return app.toTree()
 }
