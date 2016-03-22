@@ -71,9 +71,9 @@ export default Ember.Controller.extend({
   },
 
   oninput: {
-    alias: 'on-input',
+    alias: 'onInput',
     template: `
-      {{frost-text <a>on-input</a>=(<e>action</e> <ac>'updatePassword'</ac>)}}
+      {{frost-text <a>onInput</a>=(<e>action</e> <ac>'updatePassword'</ac>)}}
     `,
     controller: `
       <e>actions</e>: {

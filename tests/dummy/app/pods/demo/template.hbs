@@ -31,14 +31,14 @@
             <div class="snippet">
               {{format-markdown "```handlebars
 {{frost-text
-  on-input=(action 'text')
+  onInput=(action 'text')
 }}
 ```"
               }}
             </div>
             <div class="demo">
               {{frost-text
-              on-input=(action "text")
+              onInput=(action "text")
               }}
             </div>
         </div>
@@ -48,11 +48,11 @@
             <div class="snippet">
               {{format-markdown "```handlebars
 {{frost-text
-  on-input=(action 'bind')
+  onInput=(action 'bind')
   value=boundText
 }}
 {{frost-text
-  on-input=(action 'bind2')
+  onInput=(action 'bind2')
   value=boundText
 }}
 ```"
@@ -60,12 +60,12 @@
             </div>
             <div class="demo">
               {{frost-text
-              on-input=(action "bind")
+              onInput=(action "bind")
               value=boundText
               }}
                 <br>Bound Text: {{boundText}}<br>
               {{frost-text
-              on-input=(action "bind2")
+              onInput=(action "bind2")
               value=boundText
               }}
             </div>
