@@ -3,64 +3,62 @@
       {{notification-message notification=notification}}
   {{/each}}
 </div>
-<div class='frost-text-demo'>
-  <h2>frost-text</h2>
+<h2>frost-text</h2>
 
-  <div id="content">
-    <div class="dummy-header">Basic</div>
-    <div style="padding: 10px 20px;">
-      {{frost-text
-        autofocus=true
-        placeholder='basic field'
-      }}
-    </div>
+<div id="content">
+  <div class="dummy-header">Basic</div>
+  <div style="padding: 10px 20px;">
+    {{frost-text
+      autofocus=true
+      placeholder='basic field'
+    }}
+  </div>
 
-    <div class="dummy-header">Action</div>
-    <div style="padding: 10px 20px;">
-      {{frost-text
-        on-input=(action "text")
-      }}
-    </div>
+  <div class="dummy-header">Action</div>
+  <div style="padding: 10px 20px;">
+    {{frost-text
+      on-input=(action "text")
+    }}
+  </div>
 
-    <div class="dummy-header">Bound</div>
-    <div style="padding: 10px 20px;">
-      {{frost-text
-        on-input=(action "bind")
-        value=boundText
-      }}
-      <br>Bound Text: {{boundText}}<br>
-      {{frost-text
-        on-input=(action "bind2")
-        value=boundText
-      }}
-    </div>
+  <div class="dummy-header">Bound</div>
+  <div style="padding: 10px 20px;">
+    {{frost-text
+      on-input=(action "bind")
+      value=boundText
+    }}
+    <br>Bound Text: {{boundText}}<br>
+    {{frost-text
+      on-input=(action "bind2")
+      value=boundText
+    }}
+  </div>
 
-    <div class="dummy-header">Error</div>
-    <div style="padding: 10px 20px;">
-      {{frost-text
-        classNameBindings="error"
-      }}
-      {{#frost-button
-        class="small secondary"
-        on-click=(action "toggleError")
-      }}
-        <div class="text">Toggle error</div>
-      {{/frost-button}}
-    </div>
+  <div class="dummy-header">Error</div>
+  <div style="padding: 10px 20px;">
+    {{frost-text
+      classNameBindings="error"
+    }}
+    {{#frost-button
+      class="small secondary"
+      on-click=(action "toggleError")
+    }}
+      <div class="text">Toggle error</div>
+    {{/frost-button}}
+  </div>
 
-    <div class="dummy-header">Attributes - e.g. Disabled</div>
-    <div style="padding: 10px 20px;">
-      {{frost-text
-        disabled=true
-      }}
-    </div>
+  <div class="dummy-header">Attributes - e.g. Disabled</div>
+  <div style="padding: 10px 20px;">
+    {{frost-text
+      disabled=true
+    }}
+  </div>
 
-    <div class="dummy-header">Attributes - e.g. Read-only</div>
-    <div style="padding: 10px 20px;">
-      {{frost-text
-        readonly=true
-        value="Read only text"
-      }}
-    </div>
+  <div class="dummy-header">Attributes - e.g. Read-only</div>
+  <div style="padding: 10px 20px;">
+    {{frost-text
+      readonly=true
+      value="Read only text"
+    }}
   </div>
 </div>
