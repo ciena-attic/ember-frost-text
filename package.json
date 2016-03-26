@@ -1,6 +1,6 @@
 {
   "name": "ember-frost-text",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Simple Frost text input",
   "frostGuideDirectory": "ui-components/input-controls/text",
   "main": "index.js",
